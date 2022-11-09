@@ -1,0 +1,9 @@
+ProAgil.WebAPI filter=lfs diff=lfs merge=lfs -text
+package.json filter=lfs diff=lfs merge=lfs -text
+package-lock.json filter=lfs diff=lfs merge=lfs -text
+ProAgil.Domain filter=lfs diff=lfs merge=lfs -text
+ProAgil.Repository filter=lfs diff=lfs merge=lfs -text
+ProAgil.sln filter=lfs diff=lfs merge=lfs -text
+global.json filter=lfs diff=lfs merge=lfs -text
+ProAgil-App filter=lfs diff=lfs merge=lfs -text
+README.md filter=lfs diff=lfs merge=lfs -text
