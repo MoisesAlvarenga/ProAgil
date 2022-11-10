@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 import { ContatosComponent } from './contatos/contatos.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EventosComponent } from './eventos/eventos.component';
@@ -16,10 +17,10 @@ const routes: Routes = [
     ]
   },
 
-  {path: 'eventos', component: EventosComponent},
-  {path: 'palestrantes', component: PalestrantesComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'contatos', component: ContatosComponent},
+  {path: 'eventos', component: EventosComponent, canActivate: [AuthGuard]},
+  {path: 'palestrantes', component: PalestrantesComponent, canActivate: [AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'contatos', component: ContatosComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: '**', redirectTo: 'dashboard', pathMatch: 'full'},
 ];
