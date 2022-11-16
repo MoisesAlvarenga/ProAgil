@@ -4,6 +4,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 
+import { TabsModule } from 'ngx-bootstrap/tabs'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -28,6 +29,8 @@ import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { UserComponent } from './user/user.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { EventoEditComponent } from './eventos/eventoEdit/eventoEdit.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -43,7 +46,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
       TituloComponent,
       UserComponent,
       RegistrationComponent,
-      LoginComponent
+      LoginComponent,
+      EventoEditComponent
    ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    CommonModule
+    CommonModule,
+    TabsModule.forRoot(),
+    NgxMaskModule.forRoot()
   ],
   providers: [
     EventoService,

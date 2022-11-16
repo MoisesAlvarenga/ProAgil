@@ -27,7 +27,7 @@
       <th>Data</th>
       <th>Qtd Pessoas</th>
       <th>Lote</th>
-      <th>Options</th>
+      <th colspan="2">Options</th>
     </tr>
   </thead>
   <tbody>
@@ -62,6 +62,11 @@
             <i class="fa fa-eraser"></i>
           </button>
         </div>
+      </td>
+      <td>
+        <a [routerLink]="['/evento', evento.id, 'edit']" matTooltip="Edição Detalhada" class="btn btn-sm btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>
       </td>
     </tr>
   </tbody>
@@ -118,7 +123,7 @@
               <label>Data e Hora</label>
               <input type="text"
                 bsDatepicker
-                [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY hh:mm a' }"
+                [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY hh:mm' }"
               [ngClass]="{'is-invalid': registerForm.get('dataEvento')?.errors && registerForm.get('dataEvento')?.touched}"
               class="form-control" formControlName="dataEvento">
               <div *ngIf="registerForm.get('dataEvento')?.hasError('required') && registerForm.get('dataEvento')?.touched" class="invalid-feedback">

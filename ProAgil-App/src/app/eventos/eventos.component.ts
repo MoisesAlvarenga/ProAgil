@@ -42,7 +42,7 @@ export class EventosComponent implements OnInit {
               private modalService: BsModalService,
               private fb: FormBuilder,
               private localeService: BsLocaleService,
-              private toastr: ToastrService ) { 
+              private toastr: ToastrService ) {
                 this.localeService.use('pt-br');
               }
 
@@ -203,8 +203,8 @@ export class EventosComponent implements OnInit {
 
 
     )
-   
-    
+
+
   }
 
 }
