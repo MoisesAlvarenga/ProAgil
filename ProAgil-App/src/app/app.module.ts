@@ -31,6 +31,7 @@ import { UserComponent } from './user/user.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { EventoEditComponent } from './eventos/eventoEdit/eventoEdit.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { NgxCurrencyModule } from 'ngx-currency';
 
 
 
@@ -64,7 +65,8 @@ import { NgxMaskModule } from 'ngx-mask';
     ToastrModule.forRoot(),
     CommonModule,
     TabsModule.forRoot(),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    NgxCurrencyModule
   ],
   providers: [
     EventoService,

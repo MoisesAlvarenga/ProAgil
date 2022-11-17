@@ -105,7 +105,7 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label>Preço</label>
-                    <input [ngClass]="{'is-invalid': lotes.get(i+'.preco')?.errors && lotes.get(i+'.preco')?.touched}" class="form-control" type="text" formControlName="preco" placeholder="R$ 0,00">
+                    <input currencyMask [options]="{prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}" [ngClass]="{'is-invalid': lotes.get(i+'.preco')?.errors && lotes.get(i+'.preco')?.touched}" class="form-control" type="text" formControlName="preco" placeholder="R$ 0,00">
                   </div>
                   <div class="form-group col-md-4">
                     <label>Data Início</label>
@@ -150,7 +150,7 @@
                     <option value="fab fa-vimeo">Vimeo</option>
                   </select>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-8">
                   <label>Link</label>
                   <input [ngClass]="{'is-invalid': redesSociais.get(i+'.url')?.errors && redesSociais.get(i+'.url')?.touched}" type="text" formControlName="url" class="form-control" placeholder="URL">
                 </div>
@@ -202,9 +202,9 @@
           </p>
           <div class="row">
             <div class="icon-block col-md-8 iconesSociais">
-              <a class="mr-3"
+              <a href="http://{{redesSociais.get(i+'.url')?.value}}" *ngFor="let redeSocial of redesSociais.controls; let i=index" class="mr-3"
                 target="_blank">
-                <i class="fab fa-youtube"></i>
+                <i class="{{redesSociais.get(i+'.nome')?.value}}"></i>
               </a>
             </div>
             <!--div class="col-md-4 d-flex justify-content-center">

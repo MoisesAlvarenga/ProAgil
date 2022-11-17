@@ -9,6 +9,7 @@ using ProAgil.Repository;
 using AutoMapper;
 using ProAgil.WebAPI.Dtos;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProAgil.WebAPI.Controllers
 {   
@@ -139,9 +140,26 @@ namespace ProAgil.WebAPI.Controllers
         public async Task<IActionResult> Put(int EventoId, EventoDto model)
         {
             try
-            {
+            {   
+                var idLotes = new List<int>();
+                var idRedesSociais = new List<int>();
+
+                model.Lotes.ForEach(item => idLotes.Add(item.Id));
+                model.RedesSociais.ForEach(item => idRedesSociais.Add(item.Id));
+
                 var evento = await _repo.GetAllEventoAsyncById(EventoId, false);
                 if(evento == null) return NotFound();
+
+                     var lotes = evento.Lotes.Where(lote => !idLotes.Contains(lote.Id)).ToList<Lote>();
+                     var redesSociais = evento.RedesSociais.Where(redeSocial => !idRedesSociais.Contains(redeSocial.Id)).ToList<RedeSocial>();
+
+                    if(lotes.Count > 0)
+                        lotes.ForEach(lote => _repo.Delete(lote));
+
+                    if(redesSociais.Count > 0)
+                        redesSociais.ForEach(rede =>_repo.Delete(rede));
+       
+
 
                 _mapper.Map(model, evento);
 
