@@ -3,7 +3,7 @@
 # .NET Core Project
 bin
 obj
-
+dist
 # Compiled output
 /dist
 /tmp
